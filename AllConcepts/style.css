@@ -1,0 +1,195 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+header {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 15px;
+  background-color: #0056b3;
+  border-radius: 5px;
+
+}
+
+nav a:hover {
+  background-color: #003f88;
+}
+
+
+section {
+  background-color: white;
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 900px;
+  border-radius: 8px;
+
+}
+
+section h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+}
+
+
+.highlight {
+  color: #e83e8c;
+  font-weight: bold;
+}
+
+
+#block-inline-demo {
+  margin: 15px 0;
+}
+
+.block {
+  background-color: #cce5ff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.inline {
+  background-color: #f8d7da;
+  padding: 5px;
+}
+
+
+ul, ol, dl {
+  margin: 15px 0 15px 25px;
+}
+
+ul li, ol li {
+  margin-bottom: 5px;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, select, textarea, button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+#media img {
+  display: block;
+  margin: 10px auto;
+  border-radius: 10px;
+  border: 2px solid #007bff;
+  width: 300px;
+  height: 200px;
+
+}
+
+
+.layout-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.layout-container .box {
+  background-color: #ffc107;
+  color: #333;
+  padding: 20px;
+  flex: 1 1 150px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.grid-container div {
+  background-color: #28a745;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+
+
