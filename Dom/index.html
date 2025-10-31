@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Practice</title>
+  </head>
+  <body>
+    <div class="dom">
+      <h1 id="head" class="heading">Learning DOM</h1>
+      <h2 class="sub">Helloooo</h2>
+      <h2 class="sub">Good morning</h2>
+      <h2 class="sub">Good bye</h2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore eos
+        optio sapiente debitis, tempore perferendis quae dolores laboriosam
+        aspernatur, officiis nam nemo placeat deserunt. Repellat dolorum ab
+        aliquam commodi quasi?
+      </p>
+    </div>
+
+    <ul id="list">
+      <li>list1</li>
+      <li>list2</li>
+      <li>list3</li>
+    </ul>
+
+    <h3 id="count">0</h3>
+    <button id="add">Increase</button>
+    <button id="minus">Decrease</button>
+
+    <script>
+      let count = 0;
+      let countDisplay = document.getElementById("count");
+
+      document.getElementById("add").addEventListener("click", () => {
+        count++;
+        countDisplay.textContent = count;
+      });
+
+      document.getElementById("minus").addEventListener("click", () => {
+        count--;
+        countDisplay.textContent = count;
+      });
+
+      let parent = document.querySelector(".dom");
+      console.log("First child element:", parent.firstElementChild);
+      console.log("All child nodes:", parent.childNodes);
+
+      let second = document.querySelectorAll(".sub")[1];
+      console.log(
+        "Previous Sibling:",
+        second.previousElementSibling.textContent
+      );
+      console.log("Next Sibling:", second.nextElementSibling.textContent);
+
+      let menu = document.querySelector("#list");
+
+      menu.insertAdjacentHTML("beforeend", "<li>list4</li>");
+      menu.insertAdjacentHTML("afterbegin", "<li>list5</li>");
+      console.log("Updated List:", menu.textContent);
+
+      let div = document.createElement("div");
+      div.innerHTML = "<p>hello how are you</p>";
+      document.body.appendChild(div);
+      console.log("New Div Added:", div);
+    </script>
+  </body>
+</html>
