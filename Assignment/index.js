@@ -17,19 +17,24 @@ async function getCustomers() {
     console.log(data);
 
     let tab = " ";
-    data.customers.forEach(function (customers) {
-      tab += `<tr>
+    data.forEach(function (customers, idx) {
+      console.log("customers:",customers)
+      if (idx < 20) {
+        tab += `<tr>
         <td>${customers.name}</td>
         <td>${customers.email}</td>
         <td>${customers.phone}</td>
         </tr>`;
+      }
+      console.log("outside foreach:", idx );
+      
     });
     document.getElementById("dataop").innerHTML = tab;
-    document.getElementById("btnCust").addEventListener("click", getCustomers);
   } catch (error) {
     console.error(error.message);
   }
 }
+document.getElementById("btnCust").addEventListener("click", getCustomers);
 
 async function getImages() {
   try {
@@ -43,13 +48,16 @@ async function getImages() {
     console.log(data);
 
     let tab = " ";
-    data.photos.forEach(function (photos) {
-      tab += `<tr>
+    data.forEach(function (photos, idx) {
+      if (idx < 10) {
+        tab += `<tr>
         <td>${photos.caption}</td>
-        <td>${photos.like}</td>
-        <td>${customers.url}</td>
+        <td>${photos.likes}</td>
+        <td> <a href="${photos.url}">Image</a></td>
         </tr>`;
+      }
     });
+    document.getElementById("imgdata").innerHTML = tab;
   } catch (error) {
     console.error(error.message);
   }

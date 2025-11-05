@@ -68,3 +68,5 @@ console.log(user.hasOwnProperty("name"));
 const{name:fname} = user
 console.log(fname);
 
+
+
