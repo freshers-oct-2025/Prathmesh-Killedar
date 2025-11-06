@@ -1,18 +1,27 @@
-import "./ExpenseDate.css"
+import "./ExpenseDate.css";
 
-function ExpenseDate(props) {
-  const month = props.date.toLocaleString("en-us", { month: "long" });
-  const day = props.date.toLocaleString("en-us", { day: "2-digit" });
-  const year = props.date.getFullYear();
+function ExpenseDate({ date }) {
+  // 🛡️ Guard clause — handle missing or invalid date
+  if (!(date instanceof Date) || isNaN(date)) {
+    return (
+      <div className="expense-date">
+        <div className="ed-month">—</div>
+        <div className="ed-day">—</div>
+        <div className="ed-year">—</div>
+      </div>
+    );
+  }
+
+  const month = date.toLocaleString("en-US", { month: "long" });
+  const day = date.toLocaleString("en-US", { day: "2-digit" });
+  const year = date.getFullYear();
 
   return (
-    <>
-      <div className="expense-date">
-        <div className="ed-month">{month}</div>
-        <div className="ed-day">{day}</div>
-        <div className="ed-year">{year}</div>
-      </div>
-    </>
+    <div className="expense-date">
+      <div className="ed-month">{month}</div>
+      <div className="ed-day">{day}</div>
+      <div className="ed-year">{year}</div>
+    </div>
   );
 }
 
