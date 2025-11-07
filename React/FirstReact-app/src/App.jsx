@@ -1,19 +1,34 @@
+import { useState } from "react";
 import ExpenseItem from "./components/ExpenseItem";
+import NewExpense from "./components/NewExpense/NewExpense";
+import ExpensesFilter from "./components/ExpensesFilter";
 
-function App() {
-  const expenses = [
-    {
-      title: "New phone",
-      amount: 12000,
-      date: new Date(2024, 7, 25),
-    },
-    {
-      title: "New Car",
-      amount: 50000,
-      date: new Date(2025, 10, 5),
-    },
-  ];
-  name = "prathmesh";
+const dummy_expenses = [
+  {
+    title: "New phone",
+    amount: 12000,
+    date: new Date(2024, 7, 25),
+  },
+  {
+    title: "New Car",
+    amount: 50000,
+    date: new Date(2025, 10, 5),
+  },
+];
+
+function App(props) {
+  const [filteredYear, setFilteredYear] = useState("2022");
+  const [expenses, setExpenses] = useState(dummy_expenses);
+
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
+  const filterChangeHandler = (selectedYear) => {
+    setFilteredYear(selectedYear);
+  };
   return (
     <>
       <div>
@@ -25,16 +40,21 @@ function App() {
           non error modi eaque libero expedita voluptatibus ea sint consequatur
           repudiandae.
         </p>
-        <ExpenseItem
-          title={expenses[0].title}
-          amount={expenses[0].amount}
-          date={expenses[0].date}
-        ></ExpenseItem>
-        <ExpenseItem
-          title={expenses[1].title}
-          amount={expenses[1].amount}
-          date={expenses[1].date}
-        ></ExpenseItem>
+
+        {expenses.map((expense, index) => (
+          <ExpenseItem
+            key={index}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
+
+        <NewExpense onAddExpense={addExpenseHandler} />
+        <ExpensesFilter
+          selected={filteredYear}
+          onChangefilter={filterChangeHandler}
+        ></ExpensesFilter>
 
         {/* Alternate way to use props
         <ExpesnseItem expense={expenses[0]}></ExpesnseItem> */}
