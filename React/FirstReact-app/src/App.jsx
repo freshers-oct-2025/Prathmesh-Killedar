@@ -3,6 +3,8 @@ import ExpenseItem from "./components/ExpenseItem";
 import NewExpense from "./components/NewExpense/NewExpense";
 import ExpensesFilter from "./components/ExpensesFilter";
 
+import Form from "./components/Form";
+
 const dummy_expenses = [
   {
     title: "New phone",
@@ -32,14 +34,16 @@ function App(props) {
   return (
     <>
       <div>
-        {name}
+        {/* {name}
         <h2>Let's Start</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
           fugiat suscipit quibusdam, omnis sit voluptate quas in magni? Corrupti
           non error modi eaque libero expedita voluptatibus ea sint consequatur
           repudiandae.
-        </p>
+        </p> */}
+
+        {/* <Form></Form> */}
 
         {expenses.map((expense, index) => (
           <ExpenseItem
